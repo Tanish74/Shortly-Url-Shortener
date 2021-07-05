@@ -3,19 +3,18 @@ import styled from "styled-components";
 import logo from "../../Assets/logo.svg";
 
 const Nav = styled.nav`
-  height: 100px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100px;
 `;
 
-const NavL = styled.div`
+const Section1 = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-around;
   height: 100%;
   width: 40%;
-  justify-content: space-around;
 `;
 
 const NavLinks = styled.div`
@@ -41,7 +40,7 @@ const Logo = styled.div`
   place-items: center;
 `;
 
-const NavAuth = styled.div`
+const Section2 = styled.div`
   height: 100%;
   width: 30%;
   display: grid;
@@ -91,7 +90,7 @@ const Signup = styled.button`
 const Navbar = () => {
   return (
     <Nav>
-      <NavL>
+      <Section1>
         <Logo>
           <a href='/'>
             <img draggable={false} src={logo} alt='logo' />
@@ -102,15 +101,15 @@ const Navbar = () => {
           <a href='#!'>Pricing</a>
           <a href='#!'>Resources</a>
         </NavLinks>
-      </NavL>
-      <NavAuth>
+      </Section1>
+      <Section2>
         <AuthLinks>
           <a href='#!'>Login</a>
           <Signup>
             <p>Sign Up</p>
           </Signup>
         </AuthLinks>
-      </NavAuth>
+      </Section2>
     </Nav>
   );
 };
