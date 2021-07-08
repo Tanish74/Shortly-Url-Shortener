@@ -1,115 +1,42 @@
 import React from "react";
-import styled from "styled-components";
+import {
+  Nav,
+  NavL,
+  NavAuth,
+  NavLinks,
+  Logo,
+  AuthLinks,
+} from "../style/NavbarStyle";
+import { FaBars } from "react-icons/fa";
+import { MobileIcon } from "../style/HamburgerStyle";
+
+import { Btn1 } from "../style/MainStyle";
 import logo from "../../Assets/logo.svg";
 
-const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100px;
-`;
-
-const Section1 = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  height: 100%;
-  width: 40%;
-`;
-
-const NavLinks = styled.div`
-  display: flex;
-  height: 100%;
-  align-items: center;
-
-  a {
-    color: #9e9aa7;
-    text-decoration: none;
-    padding: 0 10px;
-    transition: 400ms ease all;
-  }
-
-  a:hover {
-    color: #232127;
-  }
-`;
-
-const Logo = styled.div`
-  height: 100%;
-  display: grid;
-  place-items: center;
-`;
-
-const Section2 = styled.div`
-  height: 100%;
-  width: 30%;
-  display: grid;
-  place-items: center;
-`;
-
-const AuthLinks = styled.div`
-  height: 100%;
-  width: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  a {
-    color: #9e9aa7;
-    text-decoration: none;
-    padding: 0 10px;
-    transition: 400ms ease all;
-  }
-
-  a:hover {
-    color: #232127;
-  }
-`;
-
-const Signup = styled.button`
-  color: white;
-  background-color: #2acfcf;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: 400ms ease all;
-  :hover {
-    opacity: 0.6;
-  }
-
-  p {
-    color: white;
-    font-size: 18px;
-    text-decoration: none;
-    padding: 0 10px;
-    transition: 400ms ease all;
-    font-weight: 700;
-  }
-`;
-
-const Navbar = () => {
+const Navbar = ({ mytoggleHandler }) => {
   return (
     <Nav>
-      <Section1>
+      <NavL>
         <Logo>
-          <a href='/'>
-            <img draggable={false} src={logo} alt='logo' />
-          </a>
+          <img src={logo} alt='logo' />
         </Logo>
         <NavLinks>
           <a href='#!'>Features</a>
           <a href='#!'>Pricing</a>
           <a href='#!'>Resources</a>
         </NavLinks>
-      </Section1>
-      <Section2>
+      </NavL>
+      <NavAuth>
         <AuthLinks>
           <a href='#!'>Login</a>
-          <Signup>
+          <Btn1>
             <p>Sign Up</p>
-          </Signup>
+          </Btn1>
         </AuthLinks>
-      </Section2>
+      </NavAuth>
+      <MobileIcon onClick={mytoggleHandler}>
+        <FaBars />
+      </MobileIcon>
     </Nav>
   );
 };
